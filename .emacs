@@ -1,4 +1,3 @@
-
 ;; UI
 (defalias 'yes-or-no-p 'y-or-n-p)
 (display-time)
@@ -18,6 +17,7 @@
 ;; Files
 (auto-compression-mode 1)
 (setq make-backup-files nil)
+(setq tramp-default-method "ssh")
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)
