@@ -1,0 +1,21 @@
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[user]
+	name = Michael Kitson
+	email = michaelskitson@gmail.com
+[github]
+	user = michaelkitson
+[alias]
+        a = add
+        b = branch
+        c = checkout
+        co = checkout
+        m = commit -m
+        am = commit -am
+        d = diff
+        ds = diff --stat
+        l = log
+        l1 = log --oneline
+        s = status
