@@ -28,4 +28,4 @@
 (put 'upcase-region 'disabled nil)
 
 ;; Loads
-(load "/usr/share/doc/git-core/contrib/emacs/git.el")
+; (load "/usr/share/doc/git-core/contrib/emacs/git.el") ; Manual install
