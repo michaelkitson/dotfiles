@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 clonepath=$HOME
-dotfiles=$clonepath/dotfiles
+dotfiles=$clonepath/mikedotfiles
 backup=$dotfiles/backup
 tstamp=$(date +%Y.%m.%d-%H%M%S)
 
