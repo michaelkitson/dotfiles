@@ -23,7 +23,7 @@ then
 		echo "Beginning..."
 		echo
 		cd $clonepath
-		git clone https://github.com/michaelkitson/dotfiles.git
+		git clone git://github.com/michaelkitson/dotfiles.git
 	elif [ -d $dotfiles ]
 	then
 		echo "exception: $dotfiles exists but $dotfiles/.git does not"
