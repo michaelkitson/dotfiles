@@ -7,6 +7,8 @@
 	email = michaelskitson@gmail.com
 [github]
 	user = michaelkitson
+[core]
+	excludesfile = ~/.gitglobalignore
 [alias]
         a = add
         b = branch
