@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+ghuser="michaelkitson"
+ghrepo="dotfiles"
+
 clonepath=$HOME
-dotfiles=$clonepath/dotfiles
+dotfiles=$clonepath/$ghrepo
 backup=$dotfiles/backup
 tstamp=$(date +%Y.%m.%d-%H%M%S)
 
@@ -24,17 +27,17 @@ fi
 
 if [ ! -d $dotfiles/.git ]
 then
-	if [ ! -d dotfiles ]
+	if [ ! -d $dotfiles ]
 	then
-		curl -s https://raw.github.com/michaelkitson/dotfiles/master/README.md
+		curl -s https://raw.github.com/$ghuser/$ghrepo/master/README.md
 		echo ; echo
-		echo "This script will proceed to clone https://github.com/michaelkitson/dotfiles.git into your home directory and install symlinks to its contents in the appropriate places."o
+		echo "This script will proceed to clone https://github.com/$ghuser/$ghrepo.git into your home directory and install symlinks to its contents in the appropriate places."
 		echo "By default this will move your existing dotfiles to $backup/backup.\$filename.$tstamp and install symlinks in their place?"
 		read -p "Press enter to continue installing dotfiles in $HOME  " gogogo
 		echo "Beginning..."
 		echo
 		cd $clonepath
-		git clone git://github.com/michaelkitson/dotfiles.git
+		git clone git://github.com/$ghuser/$ghrepo.git
 	elif [ -d $dotfiles ]
 	then
 		echo "exception: $dotfiles exists but $dotfiles/.git does not"
@@ -43,13 +46,13 @@ then
 else
 	cd $dotfiles
 	git checkout master
-        head=$(git log --pretty=oneline | head -n 1 | cut -f1 -d' ')
+	head=$(git log --pretty=oneline | head -n 1 | cut -f1 -d' ')
 	git pull
-        git diff $head bin/dotfiles.sh
+	git diff -U1 $head bin/dotfiles.sh
 fi
 cd $clonepath
 
-filelist=$(find $homeinstall -type f | sed "s#^$homeinstall/##g")" "$(find $autoinstall -type f | sed "s#^$dotfiles/##g")
+filelist=$(find $homeinstall -type f | sed "s#^$homeinstall/##g" | grep -v \.swp$)" "$(find $autoinstall -type f | sed "s#^$dotfiles/##g" | grep -v \.swp$)
 dirlist=$(find $homeinstall -mindepth 1 -type d | sed "s#^$homeinstall/##g")" "$(find $autoinstall -type d | sed "s#^$dotfiles/##g")
 
 mkdir -pv $backup
