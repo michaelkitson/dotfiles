@@ -9,7 +9,7 @@ HISTFILESIZE=2000
 shopt -s histappend
 shopt -s checkwinsize
 
-PS1="\u@\h:\w\a$ "
+PS1="\u@\h:\w$ "
 
 dir=`readlink ~/.bashrc | \grep -Po '^.*\/'`
 arch_dir="$dir$(uname)/"
