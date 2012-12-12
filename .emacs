@@ -10,7 +10,7 @@
 (setq line-number-mode t)
 (setq linum-format "%d ")
 (global-hl-line-mode 1)
-(set-face-background hl-line-face "gray20")
+(set-face-background hl-line-face "gray")
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
