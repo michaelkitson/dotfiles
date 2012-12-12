@@ -4,10 +4,13 @@ ghuser="michaelkitson"
 ghrepo="dotfiles"
 ghbranch="master"
 
+dir=$PWD
+
 clonepath=$HOME
 dotfiles=$clonepath/$ghrepo
 backup=$dotfiles/backup
 tstamp=$(date +%Y.%m.%d-%H%M%S)
+#intervalfile=$dotfiles/.git/AUTOUPDATE_OLDERTHAN
 
 homeinstall="$dotfiles/home"
 autoinstall="$dotfiles/bin"
@@ -26,6 +29,11 @@ then
 	exit 1
 fi
 
+checkbranch() {
+tmp="$(git branch | grep \*)"
+[ "${tmp#* }" == "$ghbranch" ] || git checkout $ghbranch
+}
+
 if [ ! -d $dotfiles/.git ]
 then
 	if [ ! -d $dotfiles ]
@@ -39,7 +47,8 @@ then
 		echo
 		cd $clonepath
 		git clone git://github.com/$ghuser/$ghrepo.git
-		git checkout $ghbranch
+		cd $dotfiles
+		checkbranch
 	elif [ -d $dotfiles ]
 	then
 		echo "exception: $dotfiles exists but $dotfiles/.git does not"
@@ -47,10 +56,11 @@ then
 	fi
 else
 	cd $dotfiles
-	git checkout $ghbranch
+	checkbranch
 	head=$(git log --pretty=oneline | head -n 1 | cut -f1 -d' ')
-	git pull origin $ghbranch
+	git pull #origin $ghbranch
 	git diff -U1 $head bin/dotfiles.sh
+
 fi
 cd $clonepath
 
@@ -86,3 +96,4 @@ do
 	fi
 done
 
+cd $dir
