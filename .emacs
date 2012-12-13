@@ -1,16 +1,15 @@
+
 ;; UI
 (defalias 'yes-or-no-p 'y-or-n-p)
 (display-time)
 (setq display-time-day-and-date t)
 (menu-bar-mode -1)
-(global-linum-mode 1)
+(setq line-number-mode t)
 (setq column-number-mode t)
 (setq size-indication-mode t)
 (setq inhibit-startup-message t)
-(setq line-number-mode t)
-(setq linum-format "%d ")
 (global-hl-line-mode 1)
-(set-face-background hl-line-face "gray")
+(set-face-background hl-line-face "gray20")
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
@@ -29,3 +28,8 @@
 
 ;; Loads
 ; (load "/usr/share/doc/git-core/contrib/emacs/git.el") ; Manual install
+
+;; Load architecture specific configurations
+(setq arch (if (eq system-type 'darwin) "Darwin" "Linux"))
+(setq arch-specific-config (concat (replace-regexp-in-string "\.emacs$" "" (file-symlink-p "~/.emacs")) arch "/.emacs"))
+(load arch-specific-config)

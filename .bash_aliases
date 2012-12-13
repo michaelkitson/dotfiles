@@ -10,9 +10,6 @@ alias grep_blue='GREP_COLOR="1;34" \grep --color=always --line-buffered'
 alias grep_purple='GREP_COLOR="1;35" \grep --color=always --line-buffered'
 alias grep_teal='GREP_COLOR="1;36" \grep --color=always --line-buffered'
 
-alias ll='ls -alF'
-alias la='ls -A'
-
 alias du='du -h'
 
 alias rmacs="emacs --eval '(setq buffer-read-only t)'"
@@ -27,3 +24,5 @@ alias reup='source ~/.profile'
 alias pullm='git pull origin master'
 alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"
 alias push="git branch | \grep '*' | sed 's/* //' | xargs git push origin"
+
+alias loadavg="uptime | \grep -Po '\d+\.\d+ \d+\.\d+ \d+\.\d+$'"
