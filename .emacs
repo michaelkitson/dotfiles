@@ -32,4 +32,4 @@
 ;; Load architecture specific configurations
 (setq arch (if (eq system-type 'darwin) "Darwin" "Linux"))
 (setq arch-specific-config (concat (replace-regexp-in-string "\.emacs$" "" (file-symlink-p "~/.emacs")) arch "/.emacs"))
-(load arch-specific-config)
+(if (file-readable-p arch-specific-config) (load arch-specific-config))
