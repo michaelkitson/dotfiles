@@ -11,14 +11,14 @@ shopt -s checkwinsize
 
 PS1="\u@\h:\w\$ "
 
-dir=`readlink ~/.bashrc | \grep -Po '^.*\/'`
-arch_dir="$dir$(uname)/"
+dir=`readlink ~/.bashrc | xargs dirname`
+arch_dir="$dir/$(uname)/"
 other_files=( ".bash_aliases .bash_functions" )
 arch_files=( ".bashrc .bash_aliases .bash_functions" )
 
 for file in $other_files; do
-    if [ -f "$dir$file" ]; then
-        . "$dir$file"
+    if [ -f "$dir/$file" ]; then
+        . "$dir/$file"
     fi
 done
 

@@ -10,6 +10,8 @@
 (setq inhibit-startup-message t)
 (global-hl-line-mode 1)
 (set-face-background hl-line-face "gray20")
+(global-linum-mode 1)
+(setq linum-format "%d ")
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
