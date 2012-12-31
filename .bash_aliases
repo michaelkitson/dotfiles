@@ -25,4 +25,4 @@ alias pullm='git pull origin master'
 alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"
 alias push="git branch | \grep '*' | sed 's/* //' | xargs git push origin"
 
-alias loadavg="uptime | \grep -Po '\d+\.\d+ \d+\.\d+ \d+\.\d+$'"
+alias loadavg="uptime | \grep -Po '\d+\.\d+,? \d+\.\d+,? \d+\.\d+$' | tr -d ','"
