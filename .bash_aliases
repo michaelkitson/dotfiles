@@ -26,3 +26,5 @@ alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"
 alias push="git branch | \grep '*' | sed 's/* //' | xargs git push origin"
 
 alias loadavg="uptime | \grep -Po '\d+\.\d+,? \d+\.\d+,? \d+\.\d+$' | tr -d ','"
+
+alias uuid="curl 'http://uuid.me/'"
