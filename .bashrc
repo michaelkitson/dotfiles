@@ -13,7 +13,7 @@ PS1="\u@\h:\w\$ "
 
 dir=`readlink ~/.bashrc | xargs dirname`
 arch_dir="$dir/$(uname)/"
-other_files=( ".bash_aliases .bash_functions" )
+other_files=( ".bash_aliases .bash_functions .bashrc.local" )
 arch_files=( ".bashrc .bash_aliases .bash_functions" )
 
 for file in $other_files; do
