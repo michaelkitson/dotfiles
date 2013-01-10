@@ -3,9 +3,9 @@
 # $ stock goog
 # goog: 691.03 -4.22 (-0.61%)
 stock(){
-         echo -n "$1: "
-         curl -s "http://www.google.com/finance?q=$1" | \grep -Po 'ref_\d+_[lc]p?">([()%+\-\d.]+)' | \grep -Po '\(?[\+\-]?\d+\.\d+%?\)?' | xargs echo -n
-         echo ''
+    echo -n "$1: "
+    curl -s "http://www.google.com/finance?q=$1" | \grep -Po 'ref_\d+_[lc]p?">([()%+\-\d.]+)' | \grep -Po '\(?[\+\-]?\d+\.\d+%?\)?' | xargs echo -n
+    echo ''
 }
 
 # Encrypt and decrypt functions to encrypt a given file on the disk
