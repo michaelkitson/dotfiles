@@ -29,6 +29,11 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; File Extensions
+(setq auto-mode-alist (cons '("\\.bash_functions" . sh-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.bash_aliases" . sh-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.bashrc.local" . sh-mode) auto-mode-alist))
+
 ;; Loads
 ; (load "/usr/share/doc/git-core/contrib/emacs/git.el") ; Manual install
 
