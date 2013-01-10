@@ -8,7 +8,28 @@ stock(){
     echo ''
 }
 
-# Encrypt and decrypt functions to encrypt a given file on the disk
+# Fetch current temperature
+# Usage: weather [zipcode]
+# $ weather 20001
+# 39
+weather(){
+    temp=''
+    # This needs a retry because thefuckingweather.com gives me so many 503s
+    while true ; do
+        if [ -n $1 ] ; then
+            temp=`\curl -s "http://www.thefuckingweather.com/?where=$1" | \grep -Po '<span class="temperature" tempf="\d+">' | \grep -Po '\d+'`
+        else
+            temp=`\curl -s "http://www.thefuckingweather.com/" | \grep -Po '<span class="temperature" tempf="\d+">' | \grep -Po '\d+'`
+        fi
+        if [ -n "$temp" ] ; then
+            echo "$temp degrees"
+            break;
+        fi
+        sleep 1
+    done
+}
+
+# Encryption and decryption convenience functions to encrypt a given file on the disk
 # $ encrypt FILE
 #   enter aes-256-cbc encryption password:
 #   Verifying - enter aes-256-cbc encryption password:
