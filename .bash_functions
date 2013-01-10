@@ -31,25 +31,34 @@ weather(){
 
 # Encryption and decryption convenience functions to encrypt a given file on the disk
 # $ encrypt FILE
-#   enter aes-256-cbc encryption password:
-#   Verifying - enter aes-256-cbc encryption password:
+# enter aes-256-cbc encryption password:
+# Verifying - enter aes-256-cbc encryption password:
 #
-# $ decrypt FILE.enc
-#   enter aes-256-cbc decryption password:
+# $ decrypt FILE.aes256cbc
+# enter aes-256-cbc decryption password:
 encrypt(){
-        infile=$1
-        outfile="$infile.enc"
-        openssl enc -e -in $infile -out $outfile -aes-256-cbc
-        if [ -f $outfile ]; then
-            rm $infile
-        fi
+    infile=$1
+    outfile="$infile.aes256cbc"
+    openssl enc -e -in $infile -out $outfile -aes-256-cbc
+    if [ -f $outfile ]; then
+        rm $infile
+    fi
 }
 
 decrypt(){
-        infile=$1
-        outfile=`echo -n $1 | sed 's/.enc$//'`
+    infile=$1
+    outfile=`echo -n $1 | sed 's/.aes256cbc$//'`
+    [[ $outfile = $infile ]] && inplace=true || inplace=false
+    if $inplace ; then
+        outfile="$infile.tmp"
         openssl enc -d -in $infile -out $outfile -aes-256-cbc
-        if [ -f $outfile ]; then
-            rm $infile
+        if [ -f $outfile ] && [ -s $outfile ] ; then
+            `mv $outfile $infile`
         fi
+    else
+        openssl enc -d -in $infile -out $outfile -aes-256-cbc
+        if [ -f $outfile ] && [ -s $outfile ] ; then
+            `rm $infile`
+        fi
+    fi
 }
