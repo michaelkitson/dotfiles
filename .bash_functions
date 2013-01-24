@@ -29,6 +29,10 @@ weather(){
     done
 }
 
+define(){
+    curl -s "www.thefreedictionary.com/$1" | \grep -Po '<div class="pseg">.*?<hr>' | sed 's/<div class="pseg">//' | sed -E 's/<div class="etyseg">.*//' | sed 's/<script>.*<\/script>//g' | sed -E 's/<div[^>]*>/@/g' | tr '@' '\n' | sed 's/<[^>]*>//g' | sed 's/^[a-z]\.  /    /g'
+}
+
 # Encryption and decryption convenience functions to encrypt a given file on the disk
 # $ encrypt FILE
 # enter aes-256-cbc encryption password:
