@@ -12,8 +12,8 @@
         b = branch
         c = checkout
         co = checkout
-        m = commit -m
-        am = commit -am
+        cm = commit -m
+        cam = commit -am
         d = diff
         ds = diff --stat
         l = log
