@@ -30,3 +30,4 @@ alias loadavg="uptime | \grep -Po '\d+\.\d+,? \d+\.\d+,? \d+\.\d+$' | tr -d ','"
 alias dig="dig +noall +answer +stats"
 
 alias ymd="date +%Y-%m-%d"
+alias hms="date +%H:%M:%S"
