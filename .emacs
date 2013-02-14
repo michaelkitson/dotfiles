@@ -3,7 +3,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (display-time)
 (setq display-time-day-and-date t)
-(menu-bar-mode nil)
+(menu-bar-mode -1)
 (setq line-number-mode t)
 (setq column-number-mode t)
 (setq size-indication-mode t)
