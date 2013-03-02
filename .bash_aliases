@@ -31,3 +31,5 @@ alias dig="dig +noall +answer +stats"
 
 alias ymd="date +%Y-%m-%d"
 alias hms="date +%H:%M:%S"
+
+alias pubip="curl ip.mikekitson.com"
