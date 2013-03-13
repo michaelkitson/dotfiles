@@ -1,4 +1,3 @@
-alias pgrep='ps aux | grep'
 alias mute='/usr/bin/osascript -e "set volume 0"'
 
 alias wget='curl -O'
