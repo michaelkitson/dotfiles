@@ -1,3 +1,4 @@
+(electric-pair-mode t)
 
 ; Org mode that I only use to take notes on my mac
 (require 'org)
@@ -8,6 +9,7 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-hide-leading-stars t)
 (setq org-startup-folded (quote content))
+
 
 (custom-set-faces
  '(org-hide ((((background light)) (:foreground "black")))))
