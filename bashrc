@@ -9,7 +9,8 @@ HISTFILESIZE=2000
 shopt -s histappend
 shopt -s checkwinsize
 
-PS1="\u@\h:\w\$ "
+alias jobcount="jobs | \grep -Po '\[[0-9]+\]\+' | sed 's/+/ /'"
+PS1="\$(jobcount)\u@\h:\w\$ "
 
 dir=`readlink ~/.bashrc | xargs dirname`
 arch_dir="$dir/$(uname)/"
