@@ -18,9 +18,6 @@ alias emacs="emacs -nw"
 
 alias j='jobs'
 
-alias bashrc='emacs ~/.bashrc'
-alias reup='source ~/.profile'
-
 alias pullm='git pull origin master'
 alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"
 alias push="git branch | \grep '*' | sed 's/* //' | xargs git push origin"
