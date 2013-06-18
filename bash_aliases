@@ -15,6 +15,7 @@ alias du='du -h'
 alias rmacs="emacs --eval '(setq buffer-read-only t)'"
 alias e="emacs"
 alias emacs="emacs -nw"
+alias py="python"
 
 alias j='jobs'
 
