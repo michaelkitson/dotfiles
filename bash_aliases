@@ -15,11 +15,9 @@ alias du='du -h'
 alias rmacs="emacs --eval '(setq buffer-read-only t)'"
 alias e="emacs"
 alias emacs="emacs -nw"
+alias py="python"
 
 alias j='jobs'
-
-alias bashrc='emacs ~/.bashrc'
-alias reup='source ~/.profile'
 
 alias pullm='git pull origin master'
 alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"

@@ -1,3 +1,12 @@
+# Reload shell config files
+reup(){
+    if [ -e ~/.profile ]
+    then
+	. ~/.profile
+    else
+	. ~/.bashrc
+    fi
+}
 # fetch stock price and the day's change from google finance
 # Sample output:
 # $ stock goog
