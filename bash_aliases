@@ -23,7 +23,9 @@ alias pullm='git pull origin master'
 alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"
 alias push="git branch | \grep '*' | sed 's/* //' | xargs git push origin"
 
-alias loadavg="uptime | \grep -Po '\d+\.\d+,? \d+\.\d+,? \d+\.\d+$' | tr -d ','"
+alias gitlast="git l | head -n1 | cut -f 2 -d ' '"
+
+alias loadavg="uptime | \grep -Eo '[0-9]+\.[0-9]+,? [0-9]+\.[0-9]+,? [0-9]+\.[0-9]+$' | tr -d ','"
 
 alias dig="dig +noall +answer +stats"
 
