@@ -50,3 +50,8 @@ alias vsuspend="vagrant suspend"
 alias vup="vagrant up"
 alias vupnp="vagrant up --no-provision"
 alias vin="vagrant up --no-provision && vagrant ssh"
+
+alias password_get="openssl rand 15 -base64"
+
+alias mac="ifconfig en0 | \grep -Eo '[0-9a-f:]{17} '"
+alias fake_mac='mac ; echo "TO" ; sudo ifconfig en0 ether "`openssl rand 1 -hex`:`openssl rand 1 -hex`:`openssl rand 1 -hex`:`openssl rand 1 -hex`:`openssl rand 1 -hex`:`openssl rand 1 -hex`" ; mac'
