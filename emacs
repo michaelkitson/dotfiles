@@ -41,3 +41,9 @@
 (setq arch (if (eq system-type 'darwin) "Darwin" "Linux"))
 (setq arch-specific-config (concat (replace-regexp-in-string "\.emacs$" "" (file-symlink-p "~/.emacs")) arch "/emacs"))
 (if (file-readable-p arch-specific-config) (load arch-specific-config))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
