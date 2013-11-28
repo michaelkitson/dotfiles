@@ -10,3 +10,10 @@ alias dev='cd ~/Documents/dev'
 alias notes='cd ~/Documents/notes'
 
 alias wtf="curl -s 'http://forecast.weather.gov/meteograms/Plotter.php?lat=37.78229&lon=-122.46371&wfo=MTR&zcode=CAZ006&gset=18&gdiff=3&unit=0&tinfo=PY8&ahour=0&pcmd=1110111111000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1&dd=0&bw=0&hrspan=48&pqpfhr=6&psnwhr=6' -o /tmp/weather.png && qlmanage -p /tmp/weather.png > /dev/null && rm /tmp/weather.png"
+
+# Aliases that I would never dream of using.
+alias mac="ifconfig en0 | \grep -Eo '[0-9a-f:]{17} '"
+alias rand_b="openssl rand 1 -hex"
+alias gen_mac='echo -n "`rand_b`:`rand_b`:`rand_b`:`rand_b`:`rand_b`:`rand_b`"'
+alias fake_mac='mac ; echo "TO" ; sudo ifconfig en0 ether `gen_mac` ; mac'
+
