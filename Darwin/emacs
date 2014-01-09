@@ -10,6 +10,9 @@
 (setq org-hide-leading-stars t)
 (setq org-startup-folded (quote content))
 
+; I only have gpg keys on my macs
+(require 'epa-file)
+(epa-file-enable)
 
 (custom-set-faces
  '(org-hide ((((background light)) (:foreground "black")))))
