@@ -15,6 +15,7 @@
 (show-paren-mode t)
 (setq show-paren-delay nil)
 (setq longlines-show-hard-newlines t)
+(setq-default fill-column 80)
 
 ;; Files
 (auto-compression-mode 1)
