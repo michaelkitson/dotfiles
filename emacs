@@ -1,3 +1,4 @@
+;; -*- mode: lisp -*-
 
 ;; UI
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -48,15 +49,28 @@
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'php-mode-hook 'flymake-php-load)
+(add-hook 'php-mode-hook (lambda () (c-set-style "awk")))
+
+;; Color-Theme
+(color-theme-initialize)
+(color-theme-midnight)
+
+;; Rainbow-delimiters
+(global-rainbow-delimiters-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(gnus-uncacheable-groups "\\[Gmail\\]"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flymake-errline ((t (:background "color-17")))))
+ '(flymake-errline ((t (:background "color-17"))))
+ '(org-hide ((((background light)) (:foreground "black")))))
