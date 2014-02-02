@@ -21,6 +21,7 @@
 (show-paren-mode t)
 (setq show-paren-delay nil)
 (tool-bar-mode 0)
+(setq-default fill-column 80)
 
 ;; Files
 (auto-compression-mode 1)
