@@ -35,6 +35,7 @@
 (setq auto-mode-alist (cons '("\\.bash_functions" . sh-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.bash_aliases" . sh-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.bashrc.local" . sh-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.sjs" . js2-mode) auto-mode-alist))
 
 ;; Loads
 ; (load "/usr/share/doc/git-core/contrib/emacs/git.el") ; Manual install
@@ -52,7 +53,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'php-mode-hook 'flymake-php-load)
-(add-hook 'php-mode-hook (lambda () (c-set-style "awk")))
+(add-hook 'php-mode-hook (lambda () (subword-mode 1)))
 
 ;; Color-Theme
 (color-theme-initialize)
