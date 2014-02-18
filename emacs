@@ -22,6 +22,7 @@
 (setq show-paren-delay nil)
 (tool-bar-mode 0)
 (setq-default fill-column 80)
+(setq-default show-trailing-whitespace t)
 
 ;; Files
 (auto-compression-mode 1)
