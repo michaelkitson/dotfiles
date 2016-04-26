@@ -61,13 +61,6 @@
 (add-hook 'php-mode-hook 'flymake-php-load)
 (add-hook 'php-mode-hook (lambda () (subword-mode 1)))
 
-;; Color-Theme
-(color-theme-initialize)
-(color-theme-midnight)
-
-;; Rainbow-delimiters
-(global-rainbow-delimiters-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
