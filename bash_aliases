@@ -21,8 +21,8 @@ alias py="python"
 
 alias j='jobs'
 
-alias pullm='git pull origin master'
-alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull origin"
+alias pullm='git pull --rebase origin master'
+alias pull="git branch | \grep '*' | sed 's/* //' | xargs git pull --rebase origin"
 alias push="git branch | \grep '*' | sed 's/* //' | xargs git push origin"
 
 alias gitlast="git l | head -n1 | cut -f 2 -d ' '"
